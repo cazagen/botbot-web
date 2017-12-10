@@ -6,7 +6,8 @@
   "author": "cazagen",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "private": false,
   "dependencies": {
