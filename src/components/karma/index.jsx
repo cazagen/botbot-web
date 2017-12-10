@@ -54,7 +54,7 @@ class Karma extends React.Component {
             return {key: key, value: parseInt(this.state.karma[key])}
         })
 
-        items = items.filter(item => item.key.includes(this.state.searchTerm));
+        items = items.filter(item => item.key.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
 
         items.sort(this.sortItems.bind(this));
 
@@ -72,6 +72,10 @@ class Karma extends React.Component {
                 <h2>
                     Karma
                 </h2>
+
+                <p>
+                    Entries: {items.length}
+                </p>
 
                 <div className="clearfix"></div>
 
