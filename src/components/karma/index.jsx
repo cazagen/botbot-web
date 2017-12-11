@@ -54,7 +54,7 @@ class Karma extends React.Component {
             return {key: key, value: parseInt(this.state.karma[key])}
         })
 
-        items = items.filter(item => item.key.includes(this.state.searchTerm));
+        items = items.filter(item => item.key.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
 
         items.sort(this.sortItems.bind(this));
 
@@ -63,6 +63,7 @@ class Karma extends React.Component {
         ))
 
         return (
+<<<<<<< HEAD
             <Row>
                 <Col s={12} l={8} offset="l2">
                     <span className='right'>
@@ -87,6 +88,35 @@ class Karma extends React.Component {
                     </ul>
                 </Col>
             </Row>
+=======
+            <div>
+
+                <span className='right'>
+                    <Input s={12} label='Search' onChange={this.handleSearch.bind(this)} value={this.state.searchTerm}></Input>
+                </span>
+
+                <h2>
+                    Karma
+                </h2>
+
+                <p>
+                    Entries: {items.length}
+                </p>
+
+                <div className="clearfix"></div>
+
+                <Button floating fab='vertical' icon='sort' className='red' large>
+                    <Button onClick={this.setSortingMethod.bind(this, 'num-asc')} floating className='blue'><i className="fa fa-sort-numeric-asc"></i></Button>
+                    <Button onClick={this.setSortingMethod.bind(this, 'num-desc')} floating className='blue'><i className="fa fa-sort-numeric-desc"></i></Button>
+                    <Button onClick={this.setSortingMethod.bind(this, 'alpha-asc')} floating className='orange'><i className="fa fa-sort-alpha-asc"></i></Button>
+                    <Button onClick={this.setSortingMethod.bind(this, 'alpha-desc')} floating className='orange'><i className="fa fa-sort-alpha-desc"></i></Button>
+                </Button>
+
+                <ul>
+                    {items}
+                </ul>
+            </div>
+>>>>>>> 6445d0537e74ad940d78e22f1ca104ce2d3c3ded
         )
     }
 }
