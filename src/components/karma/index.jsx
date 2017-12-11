@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from '../../axios';
-import { Button, Input, Row } from 'react-materialize'
+import { Button, Input, Row, Col } from 'react-materialize'
 
 
 class Karma extends React.Component {
@@ -63,29 +63,30 @@ class Karma extends React.Component {
         ))
 
         return (
-            <div>
+            <Row>
+                <Col s={12} l={8} offset="l2">
+                    <span className='right'>
+                        <Input s={12} label='Search' onChange={this.handleSearch.bind(this)} value={this.state.searchTerm}></Input>
+                    </span>
 
-                <span className='right'>
-                    <Input s={12} label='Search' onChange={this.handleSearch.bind(this)} value={this.state.searchTerm}></Input>
-                </span>
+                    <h2>
+                        Karma
+                    </h2>
 
-                <h2>
-                    Karma
-                </h2>
+                    <div className="clearfix"></div>
 
-                <div className="clearfix"></div>
+                    <Button floating fab='vertical' icon='sort' className='red' large>
+                        <Button onClick={this.setSortingMethod.bind(this, 'num-asc')} floating className='blue'><i className="fa fa-sort-numeric-asc"></i></Button>
+                        <Button onClick={this.setSortingMethod.bind(this, 'num-desc')} floating className='blue'><i className="fa fa-sort-numeric-desc"></i></Button>
+                        <Button onClick={this.setSortingMethod.bind(this, 'alpha-asc')} floating className='orange'><i className="fa fa-sort-alpha-asc"></i></Button>
+                        <Button onClick={this.setSortingMethod.bind(this, 'alpha-desc')} floating className='orange'><i className="fa fa-sort-alpha-desc"></i></Button>
+                    </Button>
 
-                <Button floating fab='vertical' icon='sort' className='red' large>
-                    <Button onClick={this.setSortingMethod.bind(this, 'num-asc')} floating className='blue'><i className="fa fa-sort-numeric-asc"></i></Button>
-                    <Button onClick={this.setSortingMethod.bind(this, 'num-desc')} floating className='blue'><i className="fa fa-sort-numeric-desc"></i></Button>
-                    <Button onClick={this.setSortingMethod.bind(this, 'alpha-asc')} floating className='orange'><i className="fa fa-sort-alpha-asc"></i></Button>
-                    <Button onClick={this.setSortingMethod.bind(this, 'alpha-desc')} floating className='orange'><i className="fa fa-sort-alpha-desc"></i></Button>
-                </Button>
-
-                <ul>
-                    {items}
-                </ul>
-            </div>
+                    <ul>
+                        {items}
+                    </ul>
+                </Col>
+            </Row>
         )
     }
 }

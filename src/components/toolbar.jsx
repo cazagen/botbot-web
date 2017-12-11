@@ -8,6 +8,7 @@ class Toolbar extends React.Component {
             <Navbar brand='Botbot' left>
                 <li><NavLink to='/'>Home</NavLink></li>
                 <li><NavLink to='/karma'>Karma</NavLink></li>
+                <li><NavLink to='/reactions'>Reactions</NavLink></li>
             </Navbar>
         )
     }
