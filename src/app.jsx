@@ -8,6 +8,7 @@ import { Row, Col } from 'react-materialize'
 
 import Toolbar from './components/toolbar'
 import Karma from './components/karma'
+import Reactions from './components/reactions'
 
 const Home = () => (
     <div><h2>Home</h2></div>
@@ -24,9 +25,10 @@ class App extends React.Component {
                 <div>
                     <Toolbar />
                     <Row>
-                        <Col l={8} s={12} offset='l2'>
+                        <Col s={12}>
                             <Route exact path='/' component={Home} />
                             <Route path='/karma' component={Karma} />
+                            <Route path='/reactions' component={Reactions} />
                         </Col>
                     </Row>
 
